@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CSC295HW5.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class ParenthesisCheckerTests
     {
         /// <summary>
@@ -17,7 +17,8 @@ namespace CSC295HW5.Tests
         [TestMethod]
         public void TestSingleTypeBalanced()
         {
-            Assert.IsTrue(ParenthesisChecker.isBalanced("()"));
+            bool result = ParenthesisChecker.IsBalanced("()");
+            Assert.IsTrue(result, "Expected balanced parentheses to return true.");
         }
 
         /// <summary>
@@ -26,7 +27,8 @@ namespace CSC295HW5.Tests
         [TestMethod]
         public void TestMixedTypeBalanced()
         {
-            Assert.IsTrue(ParenthesisChecker.isBalanced("{[()]}"));
+            bool result = ParenthesisChecker.IsBalanced("{[()]}");
+            Assert.IsTrue(result, "Expected mixed type balanced parentheses to return true.");
         }
 
         /// <summary>
@@ -35,7 +37,8 @@ namespace CSC295HW5.Tests
         [TestMethod]
         public void TestUnbalanced()
         {
-            Assert.IsFalse(ParenthesisChecker.isBalanced("{[()]}["));
+            bool result = ParenthesisChecker.IsBalanced("{[()]}[");
+            Assert.IsFalse(result, "Expected unbalanced parentheses to return false.");
         }
 
         /// <summary>
@@ -44,7 +47,8 @@ namespace CSC295HW5.Tests
         [TestMethod]
         public void TestEmptyString()
         {
-            Assert.IsTrue(ParenthesisChecker.isBalanced(""));
+            bool result = ParenthesisChecker.IsBalanced("");
+            Assert.IsTrue(result, "Expected empty string to return true.");
         }
 
         /// <summary>
@@ -53,7 +57,8 @@ namespace CSC295HW5.Tests
         [TestMethod]
         public void TestSingleTypeUnbalanced()
         {
-            Assert.IsFalse(ParenthesisChecker.isBalanced("(()"));
+            bool result = ParenthesisChecker.IsBalanced("(()");
+            Assert.IsFalse(result, "Expected unbalanced parentheses to return false.");
         }
     }
 }

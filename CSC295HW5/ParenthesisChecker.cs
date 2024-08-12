@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +13,10 @@ namespace CSC295HW5
         /// </summary>
         /// <param name="expression">The input string containing parentheses.</param>
         /// <returns>True if the parentheses are balanced, false otherwise.</returns>
-        public static bool isBalanced(string expression)
+        public static bool IsBalanced(string expression)
         {
             // Initialize a stack to keep track of opening brackets.
-            Stack stack = new Stack();
+            Stack<char> stack = new Stack<char>();
 
             // Iterate through each character in the expression.
             foreach (char c in expression)
@@ -36,7 +36,7 @@ namespace CSC295HW5
                     }
 
                     // Pop the last opening bracket from the stack.
-                    char last = (char)stack.Pop()!;
+                    char last = stack.Pop();
 
                     // Check if the current closing bracket matches the last opening bracket.
                     if ((c == ')' && last != '(') || (c == '}' && last != '{') || (c == ']' && last != '['))
